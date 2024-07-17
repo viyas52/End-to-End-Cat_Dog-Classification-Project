@@ -1,1 +1,1 @@
-# End-to-End-Object-Detection-Project
+# End-to-End-Image-Classification-Project
