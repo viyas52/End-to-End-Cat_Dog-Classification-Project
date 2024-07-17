@@ -7,7 +7,7 @@
 Clone the repository
 
 ```bash
-https://github.com/viyas52/End-to-End-Object-Detection-Project.git
+https://github.com/viyas52/End-to-End-Image-Classification-Project.git
 ```
 ### STEP 01- Create a conda environment after opening the repository
 
