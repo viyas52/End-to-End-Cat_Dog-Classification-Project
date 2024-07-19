@@ -24,4 +24,4 @@ logging.basicConfig(
 
 )
 
-logger = logging.getLogger("custom_log")
+#logger = logging.getLogger("custom_log")
