@@ -34,3 +34,17 @@ class PrepareCallbacksConfig:
     checkpoint_model_filepath: Path
     
 logging.info("callback variables created")
+
+
+@dataclass(frozen=True)
+class TrainingConfig:
+    root_dir: Path
+    trained_model_path: Path
+    updated_base_model_path: Path
+    training_data: Path
+    params_epochs: int
+    params_batch_size: int
+    params_is_augmentation: bool
+    params_image_size: list
+
+logging.info("training variables created")

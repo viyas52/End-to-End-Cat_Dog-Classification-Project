@@ -1,5 +1,6 @@
 from src.pipeline.stage_01_data_ingestion import DataIngestiontrainingPipeline
 from src.pipeline.stage_02_prepare_base_model import PrepareBaseModelTrainingPipeline
+from src.pipeline.stage_03_model_trainer import ModelTrainingPipeline
 import logging
 from src.exception import CustomException
 import sys
@@ -22,6 +23,18 @@ try:
     logging.info(f'>>>>>>> stage {STAGE_NAME} started <<<<<<<<')
     prepare_base_model = PrepareBaseModelTrainingPipeline()
     prepare_base_model.main()
+    logging.info(f'>>>>>>>>>>>>> {STAGE_NAME} completed <<<<<<<<<<< \n\n x=========================x')
+                    
+except Exception as e :
+    raise CustomException(e,sys)
+
+
+STAGE_NAME = "model trainer stage"
+
+try:
+    logging.info(f'>>>>>>> stage {STAGE_NAME} started <<<<<<<<')
+    model_trainer = ModelTrainingPipeline()
+    model_trainer.main()
     logging.info(f'>>>>>>>>>>>>> {STAGE_NAME} completed <<<<<<<<<<< \n\n x=========================x')
                     
 except Exception as e :
