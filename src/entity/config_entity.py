@@ -25,3 +25,12 @@ class PrepareBaseModelConfig:
     params_classes: int
     
 logging.info("base model variables created")
+
+
+@dataclass(frozen=True)
+class PrepareCallbacksConfig:
+    root_dir: Path
+    tensorboard_root_log_dir: Path
+    checkpoint_model_filepath: Path
+    
+logging.info("callback variables created")
