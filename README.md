@@ -12,11 +12,11 @@ https://github.com/viyas52/End-to-End-Image-Classification-Project.git
 ### STEP 01- Create a conda environment after opening the repository
 
 ```bash
-conda create -n ETEOD python=3.8 -y
+conda create -n ETEIC python=3.8 -y
 ```
 
 ```bash
-conda activate ETEOD
+conda activate ETEIC
 ```
 
 
