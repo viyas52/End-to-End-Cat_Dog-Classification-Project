@@ -83,10 +83,8 @@
                     <img id="uploadedImage" src="" alt="Uploaded Image">
                 </div>
                 <form id="uploadForm">
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="fileInput" accept="image/*">
-                    </div>
-                    <button type="button" class="btn btn-primary btn-block" id="uploadButton">Upload</button>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button type="button" class="btn btn-primary btn-block" id="uploadButton">Upload Image</button>
                     <button type="button" class="btn btn-success btn-block" id="predictButton">Predict</button>
                 </form>
                 <div class="results-box mt-4" id="results">
