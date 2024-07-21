@@ -1,56 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog or Cat Image Classification</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dog or Cat Classifier</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
         .container {
             margin-top: 50px;
         }
-        .result {
-            margin-top: 20px;
+
+        .image-box {
+            height: 300px;
+            width: 100%;
+            border: 1px solid #ced4da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .image-box img {
+            max-height: 100%;
+            max-width: 100%;
+            display: none;
+        }
+
+        .results-box {
+            border: 1px solid #ced4da;
+            padding: 15px;
+            height: 150px;
+            overflow: auto;
+        }
+
+        #loading {
+            display: none;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #007bff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            display: inline-block;
+            margin-top: 20%;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
-<body class="bg-light text-dark">
 
+<body>
     <div class="container">
-        <div class="text-center">
-            <h1>Dog or Cat Image Classification</h1>
-            <p class="lead">Upload an image to classify whether it's a dog or a cat.</p>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <form id="uploadForm" enctype="multipart/form-data">
+        <h2 class="text-center">Dog or Cat Image Classification</h2>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="image-box">
+                    <img id="uploadedImage" src="" alt="Uploaded Image">
+                </div>
+                <form id="uploadForm">
                     <div class="form-group">
-                        <label for="imageUpload">Upload Image</label>
-                        <input type="file" class="form-control-file" id="imageUpload" accept="image/*">
+                        <input type="file" class="form-control-file" id="fileInput" accept="image/*">
                     </div>
-                    <button type="submit" class="btn btn-primary">Classify Image</button>
+                    <button type="button" class="btn btn-primary btn-block" id="uploadButton">Upload</button>
+                    <button type="button" class="btn btn-success btn-block" id="predictButton">Predict</button>
                 </form>
+                <div class="results-box mt-4" id="results">
+                    <h5 class="text-center">Prediction Results</h5>
+                    <div id="prediction"></div>
+                </div>
             </div>
-        </div>
-
-        <div class="result text-center">
-            <h3>Classification Result</h3>
-            <p id="resultText">Upload an image to see the result.</p>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <script>
-        $('#uploadForm').on('submit', function(event) {
-            event.preventDefault();
-            
-            // Simulate an image classification result for demonstration purposes
-            const resultText = Math.random() > 0.5 ? 'It\'s a Dog!' : 'It\'s a Cat!';
-            
-            $('#resultText').text(resultText);
+        $(document).ready(function () {
+            $('#uploadButton').click(function () {
+                $('#fileInput').trigger('click');
+            });
+
+            $('#fileInput').change(function () {
+                var file = this.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#uploadedImage').attr('src', e.target.result).show();
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            $('#predictButton').click(function () {
+                var base64Data = $('#uploadedImage').attr('src').split(',')[1];
+                sendRequest(base64Data);
+            });
+
+            function sendRequest(base64Data) {
+                if (base64Data) {
+                    $('#loading').show();
+                    var url = "/predict"; // Flask endpoint
+                    $.ajax({
+                        url: url,
+                        type: "post",
+                        contentType: "application/json",
+                        data: JSON.stringify({ image: base64Data }),
+                        success: function (res) {
+                            $('#loading').hide();
+                            $('#prediction').html("<pre>" + JSON.stringify(res, undefined, 2) + "</pre>");
+                        }
+                    });
+                }
+            }
         });
     </script>
 </body>
+
 </html>
