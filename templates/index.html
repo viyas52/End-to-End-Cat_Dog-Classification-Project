@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #c0d9e381;
+            font-family: 'Roboto', sans-serif;
         }
 
+        h2 {
+            font-family: 'Lato', sans-serif;
+        }
         .container {
             margin-top: 50px;
         }
@@ -19,7 +23,7 @@
         .image-box {
             height: 300px;
             width: 100%;
-            border: 1px solid #ced4da;
+            border: 1px solid #0a539c;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -33,7 +37,7 @@
         }
 
         .results-box {
-            border: 1px solid #ced4da;
+            border: 1px solid #7698bb;
             padding: 15px;
             height: 150px;
             overflow: auto;
@@ -88,7 +92,7 @@
                     <button type="button" class="btn btn-success btn-block" id="predictButton">Predict</button>
                 </form>
                 <div class="results-box mt-4" id="results">
-                    <h5 class="text-center">Prediction Results</h5>
+                    <h5 class="text-center">Results</h5>
                     <div id="prediction"></div>
                 </div>
             </div>
