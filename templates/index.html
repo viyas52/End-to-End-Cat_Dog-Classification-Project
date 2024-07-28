@@ -39,6 +39,7 @@
             max-height: 100%;
             max-width: 100%;
             display: none;
+            color: aliceblue;
         }
 
         .results-box {
@@ -46,6 +47,7 @@
             padding: 15px;
             height: 150px;
             overflow: auto;
+            color: aliceblue;
         }
 
         #loading {
@@ -82,13 +84,13 @@
         }
         .dog-image-container {
             position: fixed;
-            top: 20px; /* Adjust as needed */
-            left: 20px; /* Adjust as needed */
-            z-index: 10; /* Ensure it stays on top */
+            top: 300px; /* Adjust as needed */
+            left: 200px; /* Adjust as needed */
+            
         }
         
         .dog-image-container img {
-            width: 150px; /* Adjust the size as needed */
+            width: 500px; /* Adjust the size as needed */
             height: auto;
         }
     </style>
@@ -96,7 +98,7 @@
 
 <body>
     <div class="dog-image-container">
-        <img src="templates\images\dogg.png" alt="Dog">
+        <img src="images\dogg.png" alt="Dog">
     </div>
 
     <div class="container">
@@ -106,7 +108,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="image-box">
-                    <img id="uploadedImage" src="" alt="Uploaded Image">
+                    <img id="uploadedImage" src="images\download.png" alt="Uploaded Image">
                 </div>
                 <form id="uploadForm">
                     <input type="file" id="fileInput" accept="image/*" style="display: none;">
