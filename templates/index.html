@@ -9,21 +9,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body {
-            background-color: #c0d9e381;
+            background-color: #c7d1ff;
             font-family: 'Roboto', sans-serif;
         }
 
         h2 {
             font-family: 'Lato', sans-serif;
+            color: #0a539c;
+        }
+        h5 {
+            font-family: 'Lato', sans-serif;
+            color: #0a539c;
         }
         .container {
-            margin-top: 150px;
+            margin-top: 100px;
         }
 
         .image-box {
             height: 300px;
             width: 100%;
-            border: 1px solid #0a539c;
+            border: 3px solid #0a539c;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -37,7 +42,7 @@
         }
 
         .results-box {
-            border: 1px solid #7698bb;
+            border: 3px solid #0a539c;
             padding: 15px;
             height: 150px;
             overflow: auto;
@@ -80,7 +85,9 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center">Dog or Cat Image Classification</h2>
+        <h2 class="text-center">DOG / CAT IMAGE CLASSIFIER</h2>
+        <br>
+        <br>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="image-box">
@@ -88,7 +95,7 @@
                 </div>
                 <form id="uploadForm">
                     <input type="file" id="fileInput" accept="image/*" style="display: none;">
-                    <button type="button" class="btn btn-primary btn-block" id="uploadButton">Upload Image</button>
+                    <button type="button" class="btn btn-primary btn-block" id="uploadButton">Upload</button>
                     <button type="button" class="btn btn-success btn-block" id="predictButton">Predict</button>
                 </form>
                 <div class="results-box mt-4" id="results">
