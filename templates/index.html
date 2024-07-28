@@ -12,14 +12,14 @@
             background-color: #c0d9e381;
             font-family: 'Roboto', sans-serif;
         }
-
+    
         h2 {
             font-family: 'Lato', sans-serif;
         }
         .container {
             margin-top: 50px;
         }
-
+    
         .image-box {
             height: 500px;
             width: 100%;
@@ -28,14 +28,21 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative; /* Add this line */
         }
-
+    
         .image-box img {
             max-height: 100%;
             max-width: 100%;
             display: none;
+            position: absolute; /* Add this line */
+            top: 50%; /* Add this line */
+            left: 50%; /* Add this line */
+            transform: translate(-50%, -50%); /* Add this line */
         }
-
+    
         .image-box::before {
             content: '';
             width: 100%;
@@ -44,14 +51,18 @@
             background-size: cover;
             opacity: 0.5;
         }
-
+    
         .results-box {
             border: 1px solid #7698bb;
             padding: 15px;
             height: 100px;
             overflow: auto;
         }
-
+    
+        .results-box h5 {
+            font-size: 1.25rem;
+        }
+    
         #loading {
             display: none;
             position: fixed;
@@ -63,7 +74,7 @@
             background: rgba(255, 255, 255, 0.8);
             text-align: center;
         }
-
+    
         .loader {
             border: 8px solid #f3f3f3;
             border-top: 8px solid #007bff;
@@ -74,15 +85,25 @@
             display: inline-block;
             margin-top: 20%;
         }
-
+    
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
             }
-
+    
             100% {
                 transform: rotate(360deg);
             }
+        }
+    
+        .btn-block {
+            display: inline-block;
+            width: auto;
+        }
+    
+        .button-group {
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -93,7 +114,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="image-box">
-                    <img id="uploadedImage" src="" alt="Uploaded Image">
+                    <img id="uploadedImage" src="" alt="templates\images\download.png">
                 </div>
                 <form id="uploadForm">
                     <input type="file" id="fileInput" accept="image/*" style="display: none;">
