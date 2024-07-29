@@ -9,13 +9,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         body {
-            background-color: #c7d1ff;
+            background-color: #dfe5ff;
             font-family: 'Roboto', sans-serif;
         }
 
         h2 {
-            font-family: 'Lato', sans-serif;
-            color: #0a539c;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            text-decoration:wavy;
+            
+            padding: 10px;
+           
+            margin-top: 20px;
+            background-color: rgb(174, 190, 254); /* Optional: add a background color to the heading */
         }
         h5 {
             font-family: 'Lato', sans-serif;
@@ -33,13 +39,14 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
+            background-color: rgb(226, 231, 252)
         }
 
         .image-box img {
             max-height: 100%;
             max-width: 100%;
             display: none;
-            color: aliceblue;
+            background-color: rgb(226, 231, 252);
         }
 
         .results-box {
@@ -47,7 +54,7 @@
             padding: 15px;
             height: 150px;
             overflow: auto;
-            color: aliceblue;
+            background-color: rgb(226, 231, 252);
         }
 
         #loading {
@@ -93,12 +100,26 @@
             width: 500px; /* Adjust the size as needed */
             height: auto;
         }
+        .cat-image-container {
+            position: fixed;
+            top: 300px; /* Adjust as needed */
+            right: 300px; /* Adjust as needed */
+    
+        }
+        
+        .cat-image-container img {
+            width: 400px; /* Adjust the size as needed */
+            height: auto;
+        }
     </style>
 </head>
 
 <body>
     <div class="dog-image-container">
         <img src="images\dogg.png" alt="Dog">
+    </div>
+    <div class="cat-image-container">
+        <img src="images\catt.png" alt="Cat Image">
     </div>
 
     <div class="container">

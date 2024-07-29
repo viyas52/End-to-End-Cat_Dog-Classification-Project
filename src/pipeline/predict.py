@@ -23,8 +23,8 @@ class DogCat:
         
         if result[0] == 1:
             prediction = 'dog'
-            return [{"image": prediction}]
+            return prediction
         
         else:
             prediction = 'cat'
-            return [{"image": prediction}]
+            return prediction
