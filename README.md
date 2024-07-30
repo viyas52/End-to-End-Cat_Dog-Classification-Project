@@ -24,3 +24,11 @@ conda activate ETEIC
 ```bash
 pip install -r requirements.txt
 ```
+### STEP 03- run the application
+open the terminal and type the following command to run the application
+
+```bash
+python app.py
+```
+
+
