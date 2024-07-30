@@ -22,9 +22,9 @@ class DogCat:
         
         
         if result[0] == 1:
-            prediction = 'dog'
+            prediction = 'This is a Dog Image'
             return prediction
         
         else:
-            prediction = 'cat'
+            prediction = 'This is a Cat Image'
             return prediction

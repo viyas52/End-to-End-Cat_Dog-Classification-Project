@@ -23,12 +23,11 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/train", methods=['GET','POST'])
+@app.route("/train", methods=['GET', 'POST'])
 @cross_origin()
 def trainRoute():
     os.system("python main.py")
     return "Training done successfully!"
-
 
 
 @app.route("/predict", methods=['POST'])
@@ -37,7 +36,7 @@ def predictRoute():
     image = request.json['image']
     decodeImage(image, clApp.filename)
     result = clApp.classifier.predictiondogcat()
-    return jsonify(result)
+    return jsonify(prediction=result)  # Return JSON object with a key
 
 
 if __name__ == "__main__":
