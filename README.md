@@ -6,17 +6,17 @@ This project is an end-to-end machine learning pipeline for classifying images o
 This project aims to provide a simple yet comprehensive example of how to build and deploy a machine learning model for image classification. Users can upload images of dogs and cats, and the application will classify them accordingly using a pre-trained VGG16 model.
 
 # Features
-->Upload images from your computer.
-->View the uploaded image in the browser.
-->Get real-time predictions (Dog or Cat) for the uploaded image.
-->Visually appealing interface with a responsive design.
+->Upload images from your computer.  
+->View the uploaded image in the browser.  
+->Get real-time predictions (Dog or Cat) for the uploaded image.  
+->Visually appealing interface with a responsive design.  
 
 # Architecture
 The project consists of the following components:
 
-->Frontend: Built using HTML, CSS, JavaScript, and Bootstrap for responsive design.
-->Backend: Flask server to handle image uploads, processing, and serving the trained machine learning model.
-->Machine Learning Model: A pre-trained model for dog/cat classification, using TensorFlow/PyTorch.
+->Frontend: Built using HTML, CSS, JavaScript, and Bootstrap for responsive design.  
+->Backend: Flask server to handle image uploads, processing, and serving the trained machine learning model.  
+->Machine Learning Model: A pre-trained model for dog/cat classification, using TensorFlow/PyTorch.  
 
 # How to run?
 ### STEPS:
