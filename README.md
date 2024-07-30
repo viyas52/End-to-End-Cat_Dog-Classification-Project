@@ -49,15 +49,15 @@ open the terminal and type the following command to run the application
 python app.py
 ```
 
-### STEP 03- run the application
+### STEP 04- run the application
 Open your browser and go to:
 ```arduino
 http://127.0.0.1:8080/
 ```
 
-# Contributing
+### Contributing
 Contributions are welcome! Please fork this repository and submit a pull request with your improvements.
 
-# License
+### License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
