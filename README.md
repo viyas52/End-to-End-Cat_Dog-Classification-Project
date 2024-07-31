@@ -54,7 +54,8 @@ Open your browser and go to:
 ```arduino
 http://127.0.0.1:8080/
 ```
-![readme for image classification proj](https://github.com/user-attachments/assets/5484cb37-2bac-4e19-bda3-7653f22db1a5)
+![readme for dogcat proj](https://github.com/user-attachments/assets/00987e93-6505-492f-a52b-f4719895fd1f)
+
 
 ### Contributing
 Contributions are welcome! Please fork this repository and submit a pull request with your improvements.
